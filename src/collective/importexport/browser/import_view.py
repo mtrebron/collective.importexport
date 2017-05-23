@@ -84,7 +84,7 @@ def read_and_create(container, data, mappings, object_type, create_new=False,
 
     # TODO(ivanteoh): Make sure container is either folder or SiteRoot
 
-    reader = csv.DictReader(data.splitlines(),
+    reader = csv.DictReader(data.splitlines(True),
                             delimiter=",",
                             dialect="excel",
                             quotechar='"')
@@ -459,7 +459,7 @@ class ImportForm(form.SchemaForm):
         header_list = settings.get('header_list',[])
         matching_fields = settings.get('matching_fields',{})
         if request.get('csv_header'):
-            reader = csv.DictReader(request.get('csv_header').splitlines(),
+            reader = csv.DictReader(request.get('csv_header'),
                                     delimiter=",",
                                     dialect="excel",
                                     quotechar='"')
