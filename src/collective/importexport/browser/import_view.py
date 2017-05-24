@@ -84,7 +84,7 @@ def read_and_create(container, data, mappings, object_type, create_new=False,
 
     # TODO(ivanteoh): Make sure container is either folder or SiteRoot
 
-    reader = csv.DictReader(data.splitlines(),
+    reader = csv.DictReader(data.splitlines(True),
                             delimiter=",",
                             dialect="excel",
                             quotechar='"')
