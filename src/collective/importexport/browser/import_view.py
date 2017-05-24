@@ -459,7 +459,7 @@ class ImportForm(form.SchemaForm):
         header_list = settings.get('header_list',[])
         matching_fields = settings.get('matching_fields',{})
         if request.get('csv_header'):
-            reader = csv.DictReader(request.get('csv_header'),
+            reader = csv.DictReader(request.get('csv_header').splitlines(),
                                     delimiter=",",
                                     dialect="excel",
                                     quotechar='"')
